@@ -36,9 +36,19 @@ namespace LibraryManager.BLL
             return books.FindAll(i => i.title == title);
         }
 
-        public List<Book> SearchBookByAuthor(string author)
+        public List<Book> SearchBookByAuthorName(String name)
         {
-            return books.FindAll(i => i.author == author);
+            return books.FindAll(i => i.author.name == name);
+        }
+
+        public List<Book> SearchBookByAuthorNationality(String nation)
+        {
+            return books.FindAll(i => i.author.nationality == nation);
+        }
+
+        public List<Book> SearchBookByAuthorBirth(DateTime birthDate)
+        {
+            return books.FindAll(i => i.author.birthDate == birthDate);
         }
 
         public List<Book> SearchBookByISBN(string ISBN)
@@ -46,7 +56,7 @@ namespace LibraryManager.BLL
             return books.FindAll(i => i.ISBN == ISBN);
         }
 
-        public void AddNewBook(String title, int barcode, String ISBN, String author)
+        public void AddNewBook(String title, int barcode, String ISBN, Author author)
         {
             if (!books.Exists(i => i.barcode == barcode))
             {

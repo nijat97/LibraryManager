@@ -7,12 +7,16 @@ namespace LibraryManager.BLL
     {
         public String id { get; set; }
         public String name { get; set; }
+        public String nationality { get; set; }
+        public DateTime birthDate { get; set; }
         List<PaymentRequest> paymentRequests;
 
-        public Member(string id, string name)
+        public Member(string id, string name, string nationality, DateTime birthdate)
         {
             this.id = id;
             this.name = name;
+            this.nationality = nationality;
+            this.birthDate = birthdate;
 
             paymentRequests = new List<PaymentRequest>();
         }
